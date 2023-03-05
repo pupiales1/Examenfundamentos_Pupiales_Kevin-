@@ -1,14 +1,14 @@
 
 package ec.edu.intsuperior.vista;
 
-import java.util.Random;
+
 import java.util.Scanner;
 
 
 
 public class Aplicacion {
     public static void main(String[] args) {  
-      sumadosMatrices();
+        menu();
     }
     
     public static void Numniños_niñas(){
@@ -16,7 +16,7 @@ public class Aplicacion {
         
         int gen=0,cn=0,cna=0;
         do{
-            System.out.println("Ingrese genero 1 niño 2 niña");
+            System.out.println("Ingrese genero (1 niño) (2 niña) (0 finalizar conteo)");
         gen=leer.nextInt();
         
         switch(gen)
@@ -495,16 +495,195 @@ public class Aplicacion {
             System.out.println();
         }
     }
-
     
+    public static void menu(){
+        Scanner leer=new Scanner(System.in);
+        int op=0;
+        do {
+            System.out.println("Ingrese una opcion \n"
+                    + "******************************\n\n"
+                    + "1.-Calcular cuantos niños y cuantas niñas nacioeron\n"
+                    + "2.-Intercambio de valores entre dos variables\n"
+                    + "3.-Comparar si un numero ingresado es negativo,mayor a 100,intervalo 0-100\n"
+                    + "4.-ingresar 15 numero y Contar cuantas veses a sido ingresado el numero tres \n"
+                    + "5.-Calculo de notas de 4 estudiantes\n"
+                    + "6.-ngresar 10 números y en un arreglo y mostrar el número mayor y el número menor.\n"
+                    + "7.-Control para almacenar el tiempo de cada corredor y además determinar por los datos obtenidos en los tiempos de los corredores cual es el ganador.\n"
+                    + "8.-Ingresar el peso de 5 personas,obtener el peso mayor, el menor, el peso medio y si ay al menos una persona con un peso mayor de 100kg.\n"
+                    + "9.-El factoria de los numeros ingresados\n"
+                    + "10.-Calcular la raiz cuadrada de un numero\n"
+                    + "11.-Serie Fibonacci de un Numero\n"
+                    + "12.-Saber si un numero es Primo o Compuesto\n"
+                    + "13.-Areglo de una piramide de numeros\n"
+                    + "14.-Calculo de una circunferencia\n"
+                    + "15.-Calculo de las areas de ciertas figiuras:circulo, cuadrado, rectángulo y triangul.\n"
+                    + "16.-Calcule el precio de venta de un producto conociendo el precio por unidad\n"
+                    + "17.-lee una temperatura en grados centígrados y calcula y muestra por pantalla su valor equivalente en grados Reamur y Kelvin\n"
+                    + "18.-ingresar elnombre y el sueldo de 20 empleados y muestre el nombre y el sueldo del empleado que más gana\n"
+                    + "19.-Sumar dos matrices de Numeros enteros\n"
+                    + "20.-Mostrar el presio de siertos Productos\n"
+                    + "0.-Salir del Menu\n");
+                    
+        op=leer.nextInt();
+        switch(op){
+            case 1:
+                Numniños_niñas();
+                break;
+            case 2:
+                intercambioValores();
+                break;
+            case 3:
+                Comparacion();
+                break;
+            case 4:
+                Vector();
+                break;
+            case 5:
+                NotasdeAlumnos();
+                break;
+            case 6:
+                mostrarMayomenor();
+                break;
+            case 7:
+                tiempodeCorredores();
+                break;
+            case 8:
+                Pesos();
+                break;
+            case 9:
+                bucleAnimado1();
+                break;
+            case 10:
+                raiZcuadrada();
+                break;
+            case 11:
+                serieFibonacci();
+                break;
+            case 12:
+                nuemroPimo();
+                break;
+            case 13:
+                Piramidenumeros();
+                break;
+            case 14:
+                Circunferencia();
+                break;
+            case 15:
+                calculoDeareas();
+                break;    
+            case 16:
+                presioProducto();
+                break;
+            case 17:
+                gradosAcentigrados();
+                break;
+            case 18:
+                sueldodeEmpleados();
+                break;
+            case 19:
+                sumadosMatrices();
+                break;
+            case 20:
+                productosPresios();
+                break;
+        }
+                
+                
+                 } while(op!=0);
+    }
+    
+    
+    
+    //Ejercicos de Examen 
+    
+    //Ejercicio 1
+    
+    public class OrdenaNumeros {
+        
+    
+        
+        int a = 5;
+        int b = 3;
+        int c = 9;
+        
+        ordena(a, b, c);
+        
+        System.out.println(a + " " + b + " " + c); // Output: 3 5 9
+    }
+    
+    public static void ordena(int a, int b, int c) {
+        if (a > b) {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+        
+        if (b > c) {
+            int temp = b;
+            b = c;
+            c = temp;
+            
+            if (a > b) {
+                temp = a;
+                a = b;
+                b = temp;
+            }
+        }
+    }
+    
+    //Ejercico 2
+    
+    public class DadoAleatorio {
       
+        int n = 4;
+        int lanzamientos = dado_aleatorio(n);
+        System.out.println( "Se necesitaron " +  lanzamientos  + "  lanzamientos para obtener el número  " +  n);
+    }
     
+    public static int dado_aleatorio(int n) {
+        Random rnd = new Random();
+        int lanzamientos = 0;
+        
+        while (true) {
+            lanzamientos++;
+            int resultado = rnd.nextInt(6) + 1;
+            if (resultado == n) {
+                break;
+            }
+        }
+        
+        return lanzamientos;
+    }
+    
+    //Ejercicio 3
 
-    
-
-    
-    
-    
-       
-
+    public class SumaProgresionGeometrica {
+        
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Ingrese el valor de a: ");
+        double a = sc.nextDouble();
+        
+        System.out.print("Ingrese el valor de r (r diferente de 1): ");
+        double r = sc.nextDouble();
+        while (r == 1) {
+            System.out.print("El valor de r debe ser diferente de 1. Ingrese otro valor: ");
+            r = sc.nextDouble();
+        }
+        
+        System.out.print("Ingrese el valor de n: ");
+        int n = sc.nextInt();
+        
+        double suma = 0;
+        for (int i = 0; i <= n; i++) {
+            suma += a * Math.pow(r, i);
+        }
+        
+        System.out.println("La suma de los términos de la progresión geométrica es: " + suma);
+    }
 }
+    
+        }
+
+    
